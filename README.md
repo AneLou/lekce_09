@@ -1,32 +1,29 @@
-# Tvořím web A–Z: lekce 9
+# HTML a CSS 1: lekce 9
 
-Jaro 2021, Praha
+Podzim 2021, online
 
-<small>11. května 2021</small>
+<small>22. listopadu 2021</small>
 
 ---
 
 # Podklady
 
-https://github.com/tvorimweb-2021-praha-jaro/lekce_09
+https://github.com/Czechitas-Liberec-HTML-CSS-2021-DK/lekce_09
 
 ---
 
 # Dnešní cíle
 
-- Seznámit se s možnostmi připojení CSS do stránky a pravidly CSS specificity
+- Seznámit se s možnostmi připojení CSS do stránky
 - Zopakovat základní CSS selektory a představit další pokročilejší
 - Naučit se práci se základními CSS pseudoelementy
+- Seznámit se s pravidly CSS specificity
 
 ---
 
 # Způsoby připojení CSS
 
 Zatím jsme se seznámili s připojením CSS jako externího souboru pomocí značky `link`. Je to asi nejběžnější způsob a v mnoha ohledech nejvýhodnější, ale je dobré znát i ostatní možnosti, protože i ty mají své použití. A přinejmenším se s nimi můžete setkat na jiných projektech.
-
-note:
-
-- předvedeme si v kódu
 
 ---
 
@@ -45,7 +42,7 @@ note:
 ## Způsoby připojení CSS - Přímo v HTML
 
 2. Přímo v HTML prostřednictvím značky `style`
-   Párová značka `style` vlastně vyznačí místo v HTML dokumentu, kam lze psát CSS. Takový to blok CSS kódu lze umístit kamkoli do dokumentu, včetně prvku `head`, což je nejběžnější užití toho zápisu. Zapisují se do něho například styly, které chceme mít na stránce vykresleny okamžitě (bez nutnosti čekat na načtení velkého souboru CSS), ale to již spíše zastaralý způsob.
+   Párová značka `style` vlastně vyznačí místo v HTML dokumentu, kam lze psát CSS. Takovýto blok CSS kódu lze umístit kamkoli do dokumentu, včetně prvku `head`, což je nejběžnější užití toho zápisu. Zapisují se do něho například styly, které chceme mít na stránce vykresleny okamžitě (bez nutnosti čekat na načtení velkého souboru CSS), ale to je již spíše zastaralý způsob.
 
    ```html
    <style>
@@ -62,7 +59,7 @@ note:
 
 ---
 
-## Způsoby připojení CSS - Inline styly
+## Způsoby připojení CSS - inline styly
 
 3. Tzv. inline styly, přímo do otvírací značky prostřednictvím atributu `style`
    Někdy nemáme možnost zasáhnout do kódu jinak než tímto způsobem. Nejčastěji jsme k tomu nuceni při úpravě obsahu stránky přes nějaký redakční systém. Dále se tento způsob využívá při tvorbě HTML e-mailů.
@@ -86,7 +83,7 @@ Pozor, poslední dva způsoby nemohou využít plnou škálu možnosti CSS (nap�
 
 # Selektory
 
-Existuje více jak 30 různých CSS selekterů a nespočet dalších možností, jak je kombinovat.
+Existuje více jak 30 různých CSS selektorů a nespočet dalších možností, jak je kombinovat.
 
 note:
 
@@ -315,8 +312,6 @@ note:
 - platí jen pro menšinu vlastností
   - např. vlastnosti týkající se textu (začínají na `font-`)
 - ve sporu s kaskádou vždy prohraje, kaskáda je silnější
-- Máchal: táta českých frontendistů
-  - od něj jsem čerpal (kopíroval) pro další výklad
 
 ---
 
@@ -376,7 +371,7 @@ note:
 
 Specificita je hodnota, která vyjadřuje přesnost zacílení daného selektoru (má číselnou hodnotu, více o tom v&nbsp;[článku Smashing Magazine](https://www.smashingmagazine.com/2007/07/css-specificity-things-you-should-know/#specificity-examples-test-yourself)).
 
-**Pamatuj si, že pravidlo se vyšší specificitou se uplatní bez ohledu na pořadí v&nbsp;kódu.** Teprve střetnou-li se stejně „silná“ pravidla, vítězí to, které je ve stylopise později.
+**Pamatuj si, že pravidlo s vyšší specificitou se uplatní bez ohledu na pořadí v&nbsp;kódu.** Teprve střetnou-li se stejně „silná“ pravidla, vítězí to, které je ve stylopise později.
 
 _Užitečné odkazy_:
 
@@ -506,7 +501,6 @@ note:
 - 2 případy, kdy lze použít:
   1. potřebuji přebít CSS 3. strany (plugin), do nějž nemohu zasáhnout, případně nastavuje styly pomocí JS (inline styly => nejvyšší specificita)
   2. zdědila jsem prastaré a spletité CSS, které by nejlíp bylo zahodit a napsat znova, ale na to není čas=peníze
-- tzv. utility třídy, viz Tachyons
 
 ---
 
@@ -514,6 +508,6 @@ note:
 
 - Zadaný v classrooms
 - Ukážeme si co je třeba
-- https://classroom.github.com/a/O7I0Is7n
+- https://classroom.github.com/a/3-KaYQCw
 
 ![Island](https://raw.githubusercontent.com/tvorimweb-2020-praha-podzim/du_06_island/master/zadani/vysledek-3-pc.jpg)
