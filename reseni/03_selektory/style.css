@@ -1,0 +1,28 @@
+/* moderní box model */
+html {
+    box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+    box-sizing: inherit;
+}
+
+a[href$=".pdf"]::after {
+    content: " (PDF)";
+}
+
+.popis p:first-child::first-letter {
+    color: hotpink;
+    font-size: 2rem;
+    background-color: black;
+}
+
+body p {
+    color: magenta;
+}
+
+.uvod.predstaveni {
+    background-color: initial;
+}

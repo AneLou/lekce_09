@@ -135,8 +135,8 @@ h4 {
 Vyjadřuje strukturu HTML:
 
 ```css
-footer p {
-  color: white;
+article > p {
+  color: blue;
 }
 ```
 
