@@ -6,6 +6,10 @@ Podzim 2021, online
 
 ---
 
+# CSS selektory, pseudotřídy, pseudoelementy a specificita
+
+---
+
 # Podklady
 
 https://github.com/Czechitas-Liberec-HTML-CSS-2021-DK/lekce_09
