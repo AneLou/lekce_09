@@ -113,7 +113,42 @@ p {
 
 ---
 
+## Třídy
+
+- Název třídy (začíná tečkou, aby se odlišil od názvu prvku):
+
+```css
+/* prvky s třídou .perex vypiš kurzívou */
+
+.perex {
+  font-style: italic;
+}
+```
+
+note:
+
+- 1 třídu může mít více prvků, bez ohledu na jejich typ
+- 1 prvek může mít více tříd, na pořadí tříd v HTML nezáleží
+
+---
+
+## Identifikátory
+
+- ID může mít jen 1 prvek na stránce – příliš vysoká _specificita_
+- Nepoužíváme!
+
+```css
+/* Tohle nedělejte! */
+#navbar {
+  background-color: #000;
+}
+```
+
+---
+
 ## Několikanásobný selektor
+
+- Stejná pravidla se přiřadí více prvkům naráz!
 
 ```css
 /* nadpisy 1.‒4 úrovně vypiš karmínovou */
@@ -130,55 +165,38 @@ h4 {
 
 ## Kontextový selektor
 
-Vyjadřuje strukturu HTML:
+- Vyjadřuje strukturu HTML
+- Odstavce, které jsou uvnitř patičky:
 
 ```css
-article > p {
-  color: blue;
+footer p {
+  color: white;
 }
 ```
-
-note:
-
-- odstavce uvnitř patičky
-- selektory čteme zprava doleva
-- `footer > p`
 
 ---
 
-## Třídy
-
-Název třídy (začíná tečkou, aby se odlišil od názvu prvku):
+## Přímý potomek
 
 ```css
-/* prvky s třídou .perex vypiš kurzívou */
+/* odkazy uvnitř prvků s třídou .perex, které jsou jeho přímým potomkem vypiš kaštanovou */
 
-.perex {
-  font-style: italic;
+.perex > a {
+  color: maroon;
 }
 ```
 
-note:
-
-- jednu třídu může mít více prvků, bez ohledu na jejich typ
-- jeden prvek může mít více tříd, na pořadí tříd v HTML nezáleží
+```html
+<div class="perex">
+  <p>Text odstavce <a href="#">odkaz na zajímavý zdroj</a>, další text</p>
+  <a href="#">odkaz na celý článek</a
+  ><!-- tento odkaz bude kaštanovou barvou, předchozí odkaz ne -->
+</div>
+```
 
 ---
 
-## ~~Identifikátory~~ – nepoužíváme
-
-```css
-/* Tohle nedělejte! */
-#navbar {
-  background-color: #000;
-}
-```
-
-note:
-
-- uvádíme pro úplnost
-- nepraktické, příliš vysoká specificita => `id` se omezuje na jediný prvek na stránce
-- specificita vysvětlena níže
+## Vícenásobné třídy
 
 ---
 
@@ -442,25 +460,6 @@ nav > ul {
 </nav>
 ```
 
----
-
-# Specificita - Další příklady
-
-```css
-/* odkazy uvnitř prvků s třídou .perex, které jsou jeho přímým potomkem vypiš kaštanovou */
-
-.perex > a {
-  color: maroon;
-}
-```
-
-```html
-<div class="perex">
-  <p>Text odstavce <a href="#">odkaz na zajímavý zdroj</a>, další text</p>
-  <a href="#">odkaz na celý článek</a
-  ><!-- tento odkaz bude kaštanovou barvou, předchozí odkaz ne -->
-</div>
-```
 
 ---
 
