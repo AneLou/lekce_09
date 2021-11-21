@@ -197,40 +197,50 @@ footer p {
 ---
 
 ## Vícenásobné třídy
+- Umožní nám přesnější zacílení
+- Používat s rozumem, pokud nás prosazení pravidla nutí řadit více než 3 třídy, bude vhodnější přidat třídu novou
+
+```css
+/* .perex, který má současně třídu .main vykresli se slonovinovým pozadím */
+
+.perex.main {
+  background-color: ivory;
+}
+```
+
+Předchozí zápis podbarví tento prvek:
+
+```html
+<p class="perex main">Úvodní odstavec nějakého článku…</p>
+```
 
 ---
 
-## Pomocí atributů
+## Atributy
 
-Prvek s&nbsp;konkrétním atributem:
+- Prvky s konkrétním atributem nebo hodnotou atributu
+
 
 ```css
-/* prvkům (tedy obrázkům) s atributem `alt` přidej spodní ohraničení */
+/* prvkům s atributem `alt` přidej spodní ohraničení */
 [alt] {
   border: 1px solid silver;
 }
 ```
 
----
-
-## Prvek s určitou hodnotou atributu
-
-Prvek s&nbsp;konkrétní hodnotou atributu:
-
 ```css
-/* obrázky s prázdným atributem `alt` orámuj karmínově */
+/* prvky s prázdným atributem `alt` orámuj karmínově */
 [alt=""] {
   border-color: crimson;
 }
 ```
 
-note:
-
-- lze ještě obměňovat, např. hodnota atributu začínající/končící na konkrétní text apod. => samostudium
-
 ---
 
 # Pseudotřídy
+
+- Určují stav prvku
+- Podle chování uživatele nebo podle struktury HTML
 
 `:hover`, `:focus`, `:first-child`, `:last-child`, `:nth-child()`, `:nth-of-type()`, ...
 
@@ -267,10 +277,10 @@ li:nth-child(3n + 2) {}
 
 - `::first-line`, `::first-letter`
   - lze stylovat pouze font, styl textu, pozadí, margin, padding a border
-- `::after`, `::before`
+- `::before`, `::after`
   - lze stylovat vše
 - `::selection`
-  - lze stylovat pouze color, background-color, text-decoration a pár dalších
+  - lze stylovat pouze color, background-color a pár dalších
 
 ---
 
@@ -298,7 +308,7 @@ div::after {
 
 # Pseudoelementy - `content`
 
-Co všechno můžu použít v `content`:
+- Co vše můžeme použít v `content`:
 
 ```css
 div::before {
@@ -321,17 +331,22 @@ div::before {
 
 ---
 
+## Univerzální selektor
+- Vybere všechny elementy v dokumentu
+
+```css
+* {
+  border: 1px solid red;
+}
+```
+
+---
+
 # Dědičnost
 
 Dědičnost v CSS je způsob, jakým se dostávají hodnoty vlastností od rodičovských elementů k potomkům.
 
 <small>Martin Michálek, [Vzhůru Dolů](https://www.vzhurudolu.cz/prirucka/css-dedicnost)</small>
-
-note:
-
-- platí jen pro menšinu vlastností
-  - např. vlastnosti týkající se textu (začínají na `font-`)
-- ve sporu s kaskádou vždy prohraje, kaskáda je silnější
 
 ---
 
@@ -339,15 +354,15 @@ note:
 
 **3 základní principy**:
 
-1. pořadí
-2. specificita
-3. důležitost
+1. Pořadí
+2. Specificita
+3. Důležitost
 
 ---
 
 ## Kaskáda - pořadí
 
-1. Pořadí rozhoduje a poslední vyhraje
+- Pořadí rozhoduje a poslední vyhraje
 
 ```css
 p {
@@ -358,17 +373,11 @@ p {
   color: cornflowerblue;
 }
 ```
-
-note:
-
-- kdo se směje naposled, ten se směje nejlíp
-- ale to je spíš vzácnější případ
-
 ---
 
 ## Kaskáda - specificita
 
-2. Selektor s vyšší váhou (specifitou) vyhrává.
+- Selektor s vyšší váhou (specifitou) vyhrává
 
 ```css
 section p {
@@ -389,104 +398,25 @@ note:
 
 # Specificita
 
-Specificita je hodnota, která vyjadřuje přesnost zacílení daného selektoru (má číselnou hodnotu, více o tom v&nbsp;[článku Smashing Magazine](https://www.smashingmagazine.com/2007/07/css-specificity-things-you-should-know/#specificity-examples-test-yourself)).
+- Hodnota, která vyjadřuje přesnost zacílení selektoru
+- Pravidlo se vyšší specificitou se uplatní bez ohledu na pořadí v kódu
+- Teprve střetnou-li se stejně „silná“ pravidla, vítězí to, které je ve stylopise později
 
-**Pamatuj si, že pravidlo s vyšší specificitou se uplatní bez ohledu na pořadí v&nbsp;kódu.** Teprve střetnou-li se stejně „silná“ pravidla, vítězí to, které je ve stylopise později.
+---
 
-_Užitečné odkazy_:
-
+# Specificita
+- Má číselnou hodnotu (jde spočítat)
 - [Specificity calculator](https://specificity.keegan.st)
 - [Specificity with Fish](https://specifishity.com)
-- [CSS specificity Wars](https://stuffandnonsense.co.uk/archives/css_specificity_wars.html)
+
+![image](https://user-images.githubusercontent.com/91323442/142771061-ea7e3cb1-8e15-4bd6-a96e-5ad27d27671b.png)
+![image](https://user-images.githubusercontent.com/91323442/142771069-e5f96b77-90fe-4749-a9f9-5a858f5be122.png)
 
 ---
 
-## Specificita - Porovnání se skutečným světem:
+## Kaskáda - důležitost
 
-- **vyndej** | cokoli | svetr | svetr ze skříně | její svetr ze skříně | její vytahaný svetr ze skříně\*
-
-- **selektor** | `*` | `li` | `ul li` | `ul .nav-item` | `.nav > .nav-item`
-
-<small>\* Jedná se o příměr, ber s&nbsp;rezervou</small>
-
----
-
-## Specificita - Zanoření prvku
-
-Naznačíme mezerou:
-
-```css
-/* seznamu v navigaci (neplatí pro ostatní seznamy) odeber odrážky */
-
-nav ul {
-  list-style: none;
-}
-
-/* odkazy uvnitř prvků s&nbsp;třídou .perex (a jenom tam) vypiš chrpovou */
-
-.perex a {
-  color: cornflowerblue;
-}
-```
-
----
-
-## Specificita - Přímý potomek
-
-Předchozí pravdla lze zpřesnit (dát jim vyšší specificitu):
-
-```css
-/* odrážky se odeberou jen na první úrovni navigace odrážek, na zanořený seznam se pravidlo nevztahuje */
-
-nav > ul {
-  list-style-type: square;
-}
-```
-
-```html
-<!-- Novinky a Starosti bez odrážek, ročníky s odrážkou -->
-<nav>
-  <ul>
-    <li><a href="novinky.html">Novinky</a></li>
-    <li>
-      <a href="starosti.html">Starosti</a>
-      <ul>
-        <li><a href="2017">2017</a></li>
-        <li><a href="2016">2016</a></li>
-        <li><a href="2015">2015</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-```
-
-
----
-
-## Specificita - Vícenásobné třídy
-
-- Vícenásobné třídy nám umožní přesnější zacílení
-- Používat s&nbsp;rozumem, pokud nás prosazení pravidla nutí řadit více než tři třídy, bude vhodnější přidat třídu novou
-
-```css
-/* .perex, který má současně třídu .main vykresli se slonovinovým pozadím */
-
-.perex.main {
-  background-color: ivory;
-}
-```
-
-Předchozí zápis podbarví tento prvek:
-
-```html
-<p class="perex main">Úvodní odstavec nějakého článku…</p>
-```
-
----
-
-## Kaskáda - Důležitost
-
-3. Pravidlo označené jako důležité, vyhraje vždy:
+- Pravidlo označené jako důležité, vyhraje vždy:
 
 ```css
 p {
@@ -498,17 +428,15 @@ note:
 
 - atomový kufřík, když jiné možnosti selžou => snažte se nepoužívat
   - hrozí, že se uškvaříte v importantovém pekle
-- Dá se přebít !important?
-- 2 případy, kdy lze použít:
-  1. potřebuji přebít CSS 3. strany (plugin), do nějž nemohu zasáhnout, případně nastavuje styly pomocí JS (inline styly => nejvyšší specificita)
-  2. zdědila jsem prastaré a spletité CSS, které by nejlíp bylo zahodit a napsat znova, ale na to není čas=peníze
 
 ---
 
 # !Poslední! povinný domácí úkol
 
-- Zadaný v classrooms
-- Ukážeme si co je třeba
-- https://classroom.github.com/a/3-KaYQCw
+- Zadaný v GitHub Classroom
+https://classroom.github.com/a/3-KaYQCw
+- Ukážeme si, co je třeba
+- Odevzdat do předposlední lekce 6.12.
+
 
 ![Island](https://raw.githubusercontent.com/tvorimweb-2020-praha-podzim/du_06_island/master/zadani/vysledek-3-pc.jpg)
