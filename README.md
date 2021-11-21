@@ -431,7 +431,7 @@ note:
 
 ---
 
-# !Poslední! povinný domácí úkol
+# 5. (poslední) povinný domácí úkol
 
 - Zadaný v GitHub Classroom
 https://classroom.github.com/a/3-KaYQCw
