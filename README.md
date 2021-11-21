@@ -10,31 +10,34 @@ Podzim 2021, online
 
 ---
 
-# Podklady
+# Dnešní cvičení
 
 https://github.com/Czechitas-Liberec-HTML-CSS-2021-DK/lekce_09
 
 ---
 
-# Dnešní cíle
+# Dnešní témata
 
-- Seznámit se s možnostmi připojení CSS do stránky
-- Zopakovat základní CSS selektory a představit další pokročilejší
-- Naučit se práci se základními CSS pseudoelementy
-- Seznámit se s pravidly CSS specificity
+- Možnosti připojení CSS do stránky
+- CSS selektory – základní a pokročilejší
+- CSS pseudotřídy a pseudoelementy
+- Pravidla CSS specificity
 
 ---
 
 # Způsoby připojení CSS
 
-Zatím jsme se seznámili s připojením CSS jako externího souboru pomocí značky `link`. Je to asi nejběžnější způsob a v mnoha ohledech nejvýhodnější, ale je dobré znát i ostatní možnosti, protože i ty mají své použití. A přinejmenším se s nimi můžete setkat na jiných projektech.
+1. Externí soubor (tag  `<link>`)
+2. Přímo v HTML (značka  `<style>`)
+3. Inline styly
+4. (Pomocí jazyka JavaScript)
 
 ---
 
-## Způsoby připojení CSS - Externí soubor
+## Způsoby připojení CSS - externí soubor
 
-1. Externí soubor nebo více souborů CSS pomocí tagu `link`
-   Známe již celkem důvěrně, pouze poznamenáme, že lze takto připojit i více souborů CSS (jeden pro obecné styly písma a barev, další pro konkrétní stránku), aby se zbytečně nestahovaly styly, které se na stránce nepoužijí.
+- Externí soubor nebo více souborů CSS pomocí tagu `<link>`
+- Nejpoužívanější
 
    ```html
    <link rel="stylesheet" href="/styles/typography.css" />
@@ -43,10 +46,10 @@ Zatím jsme se seznámili s připojením CSS jako externího souboru pomocí zna
 
 ---
 
-## Způsoby připojení CSS - Přímo v HTML
+## Způsoby připojení CSS - přímo v HTML
 
-2. Přímo v HTML prostřednictvím značky `style`
-   Párová značka `style` vlastně vyznačí místo v HTML dokumentu, kam lze psát CSS. Takovýto blok CSS kódu lze umístit kamkoli do dokumentu, včetně prvku `head`, což je nejběžnější užití toho zápisu. Zapisují se do něho například styly, které chceme mít na stránce vykresleny okamžitě (bez nutnosti čekat na načtení velkého souboru CSS), ale to je již spíše zastaralý způsob.
+- Přímo v HTML prostřednictvím značky `<style>`
+- Spíše zastaralý způsob
 
    ```html
    <style>
@@ -65,8 +68,10 @@ Zatím jsme se seznámili s připojením CSS jako externího souboru pomocí zna
 
 ## Způsoby připojení CSS - inline styly
 
-3. Tzv. inline styly, přímo do otvírací značky prostřednictvím atributu `style`
-   Někdy nemáme možnost zasáhnout do kódu jinak než tímto způsobem. Nejčastěji jsme k tomu nuceni při úpravě obsahu stránky přes nějaký redakční systém. Dále se tento způsob využívá při tvorbě HTML e-mailů.
+- Přímo do otvírací značky HTML elementu pomocí atributu style
+- Pokud není možnost zasáhnout do kódu jinak
+- Vždy přepisují externí styly!
+- Nejde použít stavové styly např. pro `:hover` a `:focus`
 
    ```html
    <p style="max-width: 20rem; color: silver;">
@@ -76,12 +81,10 @@ Zatím jsme se seznámili s připojením CSS jako externího souboru pomocí zna
 
 ---
 
-## Způsoby připojení CSS - Pomocí jazyka JavaScript
+## Způsoby připojení CSS - JavaScript
 
-4. Pomocí jazyka JavaScript
-   Uvádíme pouze pro úplnost, protože s JavaScriptem jsme se dosud nesetkali.
-
-Pozor, poslední dva způsoby nemohou využít plnou škálu možnosti CSS (například nezapíšete stavové styly pro `:hover` či `:focus`).
+- Pouze pro úplnost
+- Nejde použít stavové styly např. pro `:hover` a `:focus`
 
 ---
 
@@ -95,9 +98,10 @@ note:
 
 ---
 
-## Pomocí názvů tagů
+## Typový selektor
 
-- prostý název HTML tagu (v CSS bez špičatých závorek!)
+- Vybere všechny elementy daného typu
+- Prostý název HTML tagu (v CSS bez špičatých závorek!)
 
 ```css
 /* odstavce vypiš tučně */
@@ -106,12 +110,6 @@ p {
   font-weight: bold;
 }
 ```
-
-note:
-
-- vícenásobný selektor: tatáž pravidla se přiřadí více prvkům naráz
-- zvolené prvky oddělujeme čárkou
-- píšeme jeden selektor na řádek (kvůli přehlednosti)
 
 ---
 
